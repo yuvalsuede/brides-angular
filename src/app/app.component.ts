@@ -1,9 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {AuthService} from './common/services/auth.service';
+import {AuthService} from './common/services/auth0/auth.service';
 
 @Component({
   selector: 'app-root',
   template: `
+    <app-header></app-header>
     <nav class="navbar navbar-default">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -41,8 +42,9 @@ import {AuthService} from './common/services/auth.service';
 })
 
 export class AppComponent implements OnInit {
+
   constructor(public auth: AuthService) {
-    auth.handleAuthentication();
+
   }
 
   ngOnInit() {

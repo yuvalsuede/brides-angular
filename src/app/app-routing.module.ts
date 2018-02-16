@@ -3,6 +3,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {HomeComponent} from './pages/home/home.component';
 import {CallbackComponent} from './pages/callback/callback.component';
 import {PingComponent} from './pages/ping/ping.component';
+import {UnauthGuard} from './common/services/unauth-guard.service';
 
 export const routes: Routes = [
 
@@ -22,6 +23,9 @@ export const routes: Routes = [
   {
     path: 'callback',
     component: CallbackComponent,
+    // canActivate: [
+    //   UnauthGuard
+    // ]
   },
   { path: '**', redirectTo: 'home' }
 
@@ -29,8 +33,7 @@ export const routes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, {
-    }),
+    RouterModule.forRoot(routes, {}),
   ],
   exports: [
     RouterModule
